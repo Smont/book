@@ -11,6 +11,7 @@ export class MenuComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
   abreMenu() {
     this.mostraMenu = !this.mostraMenu;
   }

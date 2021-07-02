@@ -14,11 +14,11 @@ import { AnimaisService } from '../animais.service';
 export class ListaAnimaisComponent implements OnInit {
   animais!: Animais;
 
-  constructor(private activetedRoute: ActivatedRoute) {}
+  constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.activetedRoute.params.subscribe((param) => {
-      this.animais = this.activetedRoute.snapshot.data['animais'];
+    this.activatedRoute.params.subscribe((param) => {
+      this.animais = this.activatedRoute.snapshot.data['animais'];
     });
   }
 }

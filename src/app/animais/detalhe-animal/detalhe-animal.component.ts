@@ -1,8 +1,8 @@
-import { AnimaisService } from './../animais.service';
-import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
-import { Animal } from '../animais';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Animal } from '../animais';
+import { AnimaisService } from '../animais.service';
 
 @Component({
   selector: 'app-detalhe-animal',
@@ -21,13 +21,13 @@ export class DetalheAnimalComponent implements OnInit {
 
   ngOnInit(): void {
     this.animalId = this.activatedRoute.snapshot.params.animalId;
-    this.animal$ = this.animaisService.buscaPorId(this.animalId);
+    this.animal$ = this.animaisService.buscaPorID(this.animalId);
   }
 
   curtir() {
     this.animaisService.curtir(this.animalId).subscribe((curtida) => {
       if (curtida) {
-        this.animal$ = this.animaisService.buscaPorId(this.animalId);
+        this.animal$ = this.animaisService.buscaPorID(this.animalId);
       }
     });
   }

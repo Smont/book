@@ -5,9 +5,9 @@
   max-width: 320px;
   margin: 0;
   padding: 1em;
-  background-color: white;
+  background: white;
   top: 0;
-  left: -90px;
+  left: -90%;
   transition: left 0.3s ease-out;
   z-index: 1;
 }
