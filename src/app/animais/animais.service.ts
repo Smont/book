@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
-import { catchError, mapTo } from 'rxjs/operators';
+import { catchError, mapTo, take } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { TokenService } from '../autenticacao/token.service';
 import { Animais, Animal } from './animais';
@@ -32,7 +32,8 @@ export class AnimaisService {
         mapTo(true),
         catchError((error) => {
           return error.status === NOT_MODIFIED ? of(false) : throwError(error);
-        })
+        }),
+        take(1)
       );
   }
 }
